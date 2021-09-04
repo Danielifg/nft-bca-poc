@@ -5,7 +5,7 @@ import { LedgerConnector } from "@web3-react/ledger-connector";
 import { WalletConnectConnector } from '@web3-react/walletconnect-connector'
 import { useWeb3React} from '@web3-react/core';
 import "./App.css"
-
+import Home from "./views/Home"
 const RPCURL = "https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161";
 const TX_SERVICE_BASE_URL = 'https://safe-transaction.rinkeby.gnosis.io'
 
@@ -328,9 +328,9 @@ class App extends Component {
 
         return (
             <div className="App">
-                <Title size="md">Gnosis-Safe Delegation DAPP</Title>
-                <Card className="card">
-                    <Dot color="primary">
+                <Title size="md">BCA Utility Token Integration</Title>
+               {/*    <Card className="card">
+                  <Dot color="primary">
                         <Text size="xl" color="white">
                             1
                         </Text>
@@ -338,17 +338,21 @@ class App extends Component {
                     <Title size="xs">Introduction</Title>
                     <Text size="xl">This DAPP demonstrates how to allow Gnosis-Safe delegation via Metamask or Ledger, without revealing the private key of users. Note that in this Demo, we only show you delegation with Metamask, Ledger or WalletConnect. However, it is very easy to add even more wallet connector (e.g. trezor, etc.) simply by switching the wallet connector for Web3React.</Text>
                     <Text size="xl" color="error">Make sure all addresses you inputted in this webpage are checksum-ed!</Text>
-                </Card>
+             
+                        </Card> 
+                            */}
+
                 <Card className="card">
-                    <Dot color="primary">
+                    {/* <Dot color="primary">
                         <Text size="xl" color="white">
-                            2
+                            1
                         </Text>
-                    </Dot>
+                    </Dot> */}
                     <Title size="xs">Connect to your wallet</Title>
                     {connectView}
                 </Card>
-                {configureSafeAddressView}
+                { <Home/> }
+                {/* {configureSafeAddressView} */}
                 {delegatesView}
                 {addDelegatesView}
                 {removeDelegatesView}
