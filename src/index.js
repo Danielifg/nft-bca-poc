@@ -7,6 +7,8 @@ import GlobalStyles from './global';
 import { Web3ReactProvider } from "@web3-react/core"
 import { Web3Provider } from "@ethersproject/providers";
 import App from './App';
+import * as Sentry from "@sentry/react";
+import { Integrations } from "@sentry/tracing";
 
 function getLibrary(provider) {
     const library = new Web3Provider(provider)
@@ -15,6 +17,15 @@ function getLibrary(provider) {
     return library
 }
 
+Sentry.init({
+  dsn: "https://b83ff292003f42ab82ccd04d41caf4cf@o995099.ingest.sentry.io/5953875",
+  integrations: [new Integrations.BrowserTracing()],
+
+  // Set tracesSampleRate to 1.0 to capture 100%
+  // of transactions for performance monitoring.
+  // We recommend adjusting this value in production
+  tracesSampleRate: 1.0,
+});
 
 ReactDOM.render(
   <React.StrictMode>
